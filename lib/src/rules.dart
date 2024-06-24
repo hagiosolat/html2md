@@ -337,7 +337,6 @@ abstract class _CommonRules {
 
   static final Rule image =
       Rule('image', filters: ['img'], replacement: (content, node) {
-      print('###############my forked package is being used ###############');
     var alt = node.getAttribute('alt') ?? '';
     var src = node.getAttribute('src') ?? '';
     var title = node.getAttribute('title') ?? '';
@@ -351,14 +350,12 @@ abstract class _CommonRules {
   static final Rule video = Rule('video', filters:['source'], replacement: (content, node){
     var result = '';
    if(node.parentElName == 'video') {
-    print('checking if the stuff get the video tag');
     var width = node.getParentAttribute('width') ?? '';
     var height = node.getParentAttribute('height') ?? '';
     var src = node.getAttribute('src') ?? '';
     var type = node.getAttribute('type') ?? '';
     content = content.isNotEmpty ? '' : '';
      result = '![width : $width, height: $height] ($src)\n'; 
-     print('#######################tried priting result of $result');
    }
     return result;
   });
