@@ -355,7 +355,7 @@ abstract class _CommonRules {
     var src = node.getAttribute('src') ?? '';
     var type = node.getAttribute('type') ?? '';
     content = content.isNotEmpty ? '' : '';
-     result = '![width : $width, height: $height] ($src)\n'; 
+     result = '![width : $width, height: $height]($src)\n'; 
    }
     return result;
   });
