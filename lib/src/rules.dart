@@ -337,6 +337,7 @@ abstract class _CommonRules {
 
   static final Rule image =
       Rule('image', filters: ['img'], replacement: (content, node) {
+      print('###############my forked package is being used ###############');
     var alt = node.getAttribute('alt') ?? '';
     var src = node.getAttribute('src') ?? '';
     var title = node.getAttribute('title') ?? '';
