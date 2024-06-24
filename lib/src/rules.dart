@@ -21,6 +21,7 @@ final _commonMarkRules = [
   _CommonRules.strike,
   _CommonRules.code,
   _CommonRules.image,
+  _CommonRules.video,
   _TableRules.tableCell,
   _TableRules.tableRow,
   _TableRules.table,
@@ -340,7 +341,24 @@ abstract class _CommonRules {
     var src = node.getAttribute('src') ?? '';
     var title = node.getAttribute('title') ?? '';
     var titlePart = title.isNotEmpty ? ' "' + title + '"' : '';
+    print('![' + alt + ']' + '(' + src + titlePart + ')');
     return src.isNotEmpty ? '![' + alt + ']' + '(' + src + titlePart + ')' : '';
+  });
+
+   /// Forked and Edited by Taiwo Oladipupo
+ /// Working on the rules of generating video in order to be converted to Document
+  static final Rule video = Rule('video', filters:['source'], replacement: (content, node){
+    var result = '';
+   if(node.parentElName == 'video') {
+    print('checking if the stuff get the video tag');
+    var width = node.getParentAttribute('width') ?? '';
+    var height = node.getParentAttribute('height') ?? '';
+    var src = node.getAttribute('src') ?? '';
+    var type = node.getAttribute('type') ?? '';
+    content = content.isNotEmpty ? '' : '';
+     result = '![width : $width, height: $height] ($src)\n'; 
+   }
+    return result;
   });
 }
 
