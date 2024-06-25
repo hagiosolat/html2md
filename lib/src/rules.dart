@@ -341,7 +341,6 @@ abstract class _CommonRules {
     var src = node.getAttribute('src') ?? '';
     var title = node.getAttribute('title') ?? '';
     var titlePart = title.isNotEmpty ? ' "' + title + '"' : '';
-    print('![' + alt + ']' + '(' + src + titlePart + ')');
     return src.isNotEmpty ? '![' + alt + ']' + '(' + src + titlePart + ')' : '';
   });
 
@@ -353,7 +352,7 @@ abstract class _CommonRules {
     var width = node.getParentAttribute('width') ?? '';
     var height = node.getParentAttribute('height') ?? '';
     var src = node.getAttribute('src') ?? '';
-    var type = node.getAttribute('type') ?? '';
+    //git var type = node.getAttribute('type') ?? '';
     content = content.isNotEmpty ? '' : '';
      result = '![width : $width, height: $height]($src)\n'; 
    }
